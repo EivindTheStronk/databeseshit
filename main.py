@@ -9,8 +9,30 @@ def login():
     start_vindu.pack_forget()
     hub()
 
+def to_elever():
+    hub.pack_forget()
+    elever()
+
 def elever():
-    pass
+    elever = tk.Frame(root, width=500, height=500, bg="blue")
+    elever.pack()
+
+    title_lable = tk.Label(elever, text="Elever", font=("Arial", 24), bg="blue")
+    title_lable.place(x=250, y=100, anchor="center")
+
+    personer = [("Ola", "", "Nordmann"), ("Kari", "", "Nordmann"), ("Per", "Nordmann"), ("Pål", "", "Nordmann")]
+
+    column = ("Fornavn", "mellomnavn", "Etternavn")
+
+    treeview = ttk.Treeview(elever, columns=column, show="headings")
+    treeview.pack()
+
+    treeview.heading("Fornavn", text="Fornavn")
+    treeview.heading("mellomnavn", text="Mellomnavn")
+    treeview.heading("Etternavn", text="Etternavn")
+
+    for p in personer:
+        treeview.insert("", "end", values=p)
 
 def ny_elev():
     pass
